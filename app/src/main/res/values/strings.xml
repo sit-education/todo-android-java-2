@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Todos</string>
+    <string name="login_button_title">Login</string>
+    <string name="login_edittext_hint">login</string>
+    <string name="password_edittext_hint">password</string>
+    <string name="progress_dialog_message">Authenticating</string>
+    <string name="username_edittext_error">Enter username</string>
+    <string name="password_edittext_error">Enter password</string>
+    <string name="login_alert_title">Login Failed</string>
+    <string name="login_alert_ok_button_title">OK</string>
+    <string name="sign_up_button_title">sign up</string>
+    <string name="app_title">todos</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="error_connection_failed">Connection Failed</string>
+</resources>
