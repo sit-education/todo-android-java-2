@@ -2,10 +2,13 @@ package com.bertharand.todoapp.event;
 
 import com.bertharand.todoapp.api.model.response.UserData;
 
-public class LoginSuccessEvent {
+public class SignSuccessEvent {
     private UserData mUserData;
 
-    public LoginSuccessEvent(UserData userData) {
+    public SignSuccessEvent() {
+    }
+
+    public SignSuccessEvent(UserData userData) {
         mUserData = userData;
     }
 

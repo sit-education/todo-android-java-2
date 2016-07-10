@@ -2,7 +2,7 @@ package com.bertharand.todoapp.api.model.response;
 
 import com.google.gson.annotations.SerializedName;
 
-public class LoginResponse{
+public class SignResponse {
     @SerializedName("data")
     private UserData mUserData;
 

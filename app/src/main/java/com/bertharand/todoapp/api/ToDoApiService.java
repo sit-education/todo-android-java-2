@@ -1,7 +1,8 @@
 package com.bertharand.todoapp.api;
 
 import com.bertharand.todoapp.api.model.request.LoginRequest;
-import com.bertharand.todoapp.api.model.response.LoginResponse;
+import com.bertharand.todoapp.api.model.request.SignUpRequest;
+import com.bertharand.todoapp.api.model.response.SignResponse;
 
 import retrofit.Call;
 
@@ -22,7 +23,13 @@ public class ToDoApiService extends BaseToDoApiService {
         return mInstance;
     }
 
-    public Call<LoginResponse> login(String login, String password) {
+    public Call<SignResponse> login(String login, String password) {
         return getToDoApiInterface().login(new LoginRequest(login, password));
+    }
+
+    public Call<SignResponse> signUp(String email, String login, String firstName,
+                                     String lastName, String password, String confirmPassword) {
+        return getToDoApiInterface().signUp(
+                new SignUpRequest(email, login, firstName, lastName, password, confirmPassword));
     }
 }

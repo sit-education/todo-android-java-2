@@ -3,13 +3,21 @@
     <string name="login_button_title">Login</string>
     <string name="login_edittext_hint">login</string>
     <string name="password_edittext_hint">password</string>
-    <string name="progress_dialog_message">Authenticating</string>
-    <string name="username_edittext_error">Enter username</string>
-    <string name="password_edittext_error">Enter password</string>
+    <string name="login_progress_dialog_message">Authenticating</string>
+    <string name="sign_up_progress_dialog_message">Signing up</string>
     <string name="login_alert_title">Login Failed</string>
     <string name="login_alert_ok_button_title">OK</string>
     <string name="sign_up_button_title">sign up</string>
     <string name="app_title">todos</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="error_connection_failed">Connection Failed</string>
+    <string name="email_edittext_hint">email</string>
+    <string name="first_name_edittext_hint">first name</string>
+    <string name="last_name_edittext_hint">last name</string>
+    <string name="confirm_password_edittext_hint">confirm password</string>
+    <string name="error_empty_edittext">Please fill in all fields</string>
+    <string name="sign_up_error">Sign up failed</string>
+    <string name="error_passwords_equal">Passwords are not equal</string>
+    <string name="sign_up_title">Sign Up</string>
+    <string name="email_confirmation_message">Please, check your email to continue registration</string>
 </resources>

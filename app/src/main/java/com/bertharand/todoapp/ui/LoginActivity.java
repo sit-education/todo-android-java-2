@@ -1,8 +1,7 @@
 package com.bertharand.todoapp.ui;
 
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.EditText;
 
@@ -10,14 +9,11 @@ import com.bertharand.todoapp.R;
 import com.bertharand.todoapp.api.ToDoApiServiceHelper;
 import com.bertharand.todoapp.api.model.response.UserData;
 import com.bertharand.todoapp.event.ApiErrorEvent;
-import com.bertharand.todoapp.event.LoginSuccessEvent;
+import com.bertharand.todoapp.event.SignSuccessEvent;
 import com.bertharand.todoapp.event.NetworkErrorEvent;
 import com.bertharand.todoapp.utils.AppSettings;
 
 public class LoginActivity extends BaseActivity {
-    private String mUsernameEditTextError;
-    private String mPasswordEditTextError;
-
     private EditText mUsernameEditText;
     private EditText mPasswordEditText;
     private String mProgressMessage;
@@ -30,19 +26,15 @@ public class LoginActivity extends BaseActivity {
         mUsernameEditText = (EditText) findViewById(R.id.login_edittext);
         mPasswordEditText = (EditText) findViewById(R.id.password_edittext);
 
-        mProgressMessage = getResources().getString(R.string.progress_dialog_message);
-        mUsernameEditTextError = getResources().getString(R.string.username_edittext_error);
-        mPasswordEditTextError = getResources().getString(R.string.password_edittext_error);
+        mProgressMessage = getString(R.string.login_progress_dialog_message);
     }
 
     public void attemptToLogin(View view) {
         String login = mUsernameEditText.getText().toString().replaceAll("\\s+","");
         String password = mPasswordEditText.getText().toString().replaceAll("\\s+","");
 
-        if (login.isEmpty()) {
-            mUsernameEditText.setError(mUsernameEditTextError);
-        } else if (password.isEmpty()) {
-            mPasswordEditText.setError(mPasswordEditTextError);
+        if (login.isEmpty() && password.isEmpty()) {
+            showMessage(R.string.login_alert_title, getString(R.string.error_empty_edittext));
         } else {
             login(login, password);
         }
@@ -53,9 +45,9 @@ public class LoginActivity extends BaseActivity {
         ToDoApiServiceHelper.getInstance(this).login(login, password);
     }
 
-    public void onEvent(LoginSuccessEvent loginSuccessEvent){
+    public void onEvent(SignSuccessEvent signSuccessEvent){
         hideProgressDialog();
-        saveUserData(loginSuccessEvent.getUserData());
+        saveUserData(signSuccessEvent.getUserData());
         startToDoListActivity();
     }
 
@@ -70,29 +62,15 @@ public class LoginActivity extends BaseActivity {
 
     public void onEvent(ApiErrorEvent apiErrorEvent){
         hideProgressDialog();
-        showErrorMessage(apiErrorEvent.getErrorMessage());
+        showMessage(R.string.login_alert_title, apiErrorEvent.getErrorMessage());
     }
 
     public void onEvent(NetworkErrorEvent networkErrorEvent){
         hideProgressDialog();
-        showErrorMessage(getString(R.string.error_connection_failed));
-    }
-
-    private void showErrorMessage(String message) {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.login_alert_title)
-                .setMessage(message)
-                .setPositiveButton(R.string.login_alert_ok_button_title,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                .show();
+        showMessage(R.string.login_alert_title, getString(R.string.error_connection_failed));
     }
 
     public void startSignUpActivity(View view) {
-        //TODO
+        startActivity(new Intent(this, SignUpActivity.class));
     }
 }
