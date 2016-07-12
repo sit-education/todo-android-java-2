@@ -1,6 +1,5 @@
 package com.bertharand.todoapp.api.command;
 
-import android.content.Context;
 import android.os.Parcel;
 
 import com.bertharand.todoapp.api.ToDoApiService;
@@ -54,7 +53,7 @@ public class SignUpCommand extends BaseCommand implements Callback<SignResponse>
     }
 
     @Override
-    protected final void doExecute(Context context) {
+    protected final void doExecute() {
         Call<SignResponse> loginCall = ToDoApiService.getInstance()
                 .signUp(mEmail, mLogin, mFirstName, mLastName, mPassword, mConfirmPassword);
 

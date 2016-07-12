@@ -3,9 +3,12 @@ package com.bertharand.todoapp.api;
 import android.content.Context;
 import android.content.Intent;
 
+import com.bertharand.todoapp.api.command.AddTaskCommand;
 import com.bertharand.todoapp.api.command.BaseCommand;
+import com.bertharand.todoapp.api.command.GetTaskListCommand;
 import com.bertharand.todoapp.api.command.LoginCommand;
 import com.bertharand.todoapp.api.command.SignUpCommand;
+import com.bertharand.todoapp.utils.AppSettings;
 
 public class ToDoApiServiceHelper {
     private static volatile ToDoApiServiceHelper mInstance;
@@ -35,6 +38,16 @@ public class ToDoApiServiceHelper {
                              String lastName, String password, String confirmPassword){
         Intent i = createIntent(
                 new SignUpCommand(email, login, firstName, lastName, password, confirmPassword));
+        startService(i);
+    }
+
+    public final void getTaskList(){
+        Intent i = createIntent(new GetTaskListCommand(AppSettings.getToken(mContext)));
+        startService(i);
+    }
+
+    public final void addTask(String title, String description){
+        Intent i = createIntent(new AddTaskCommand(AppSettings.getToken(mContext), title, description));
         startService(i);
     }
 

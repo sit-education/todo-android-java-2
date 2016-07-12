@@ -1,22 +1,22 @@
 package com.bertharand.todoapp.event;
 
-import com.bertharand.todoapp.api.model.response.UserData;
+import com.bertharand.todoapp.api.model.response.User;
 
 public class SignSuccessEvent {
-    private UserData mUserData;
+    private User mUser;
 
     public SignSuccessEvent() {
     }
 
-    public SignSuccessEvent(UserData userData) {
-        mUserData = userData;
+    public SignSuccessEvent(User user) {
+        mUser = user;
     }
 
-    public UserData getUserData() {
-        return mUserData;
+    public User getUser() {
+        return mUser;
     }
 
-    public final void setUserData(UserData userData) {
-        mUserData = userData;
+    public final void setUser(User user) {
+        mUser = user;
     }
 }

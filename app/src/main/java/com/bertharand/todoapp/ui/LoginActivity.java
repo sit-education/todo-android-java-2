@@ -7,7 +7,7 @@ import android.widget.EditText;
 
 import com.bertharand.todoapp.R;
 import com.bertharand.todoapp.api.ToDoApiServiceHelper;
-import com.bertharand.todoapp.api.model.response.UserData;
+import com.bertharand.todoapp.api.model.response.User;
 import com.bertharand.todoapp.event.ApiErrorEvent;
 import com.bertharand.todoapp.event.SignSuccessEvent;
 import com.bertharand.todoapp.event.NetworkErrorEvent;
@@ -47,17 +47,19 @@ public class LoginActivity extends BaseActivity {
 
     public void onEvent(SignSuccessEvent signSuccessEvent){
         hideProgressDialog();
-        saveUserData(signSuccessEvent.getUserData());
+        saveUserData(signSuccessEvent.getUser());
         startToDoListActivity();
     }
 
-    private void saveUserData(UserData userData){
-        AppSettings.setToken(this, userData.getTokenKey());
-        AppSettings.setTokenExpired(this, userData.getTokenExpired());
+    private void saveUserData(User user){
+        AppSettings.setToken(this, user.getTokenKey());
+        AppSettings.setTokenExpired(this, user.getTokenExpired());
     }
 
     private void startToDoListActivity(){
-        //TODO
+        Intent mainIntent = new Intent(this, MainActivity.class);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(mainIntent);
     }
 
     public void onEvent(ApiErrorEvent apiErrorEvent){

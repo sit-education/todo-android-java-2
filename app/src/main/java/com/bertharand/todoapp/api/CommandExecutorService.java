@@ -14,7 +14,7 @@ public class CommandExecutorService extends Service {
     @Override
     public final int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null && ACTION_EXECUTE_COMMAND.equals(intent.getAction())) {
-            getCommand(intent).execute(getApplicationContext());
+            getCommand(intent).execute();
         }
         return START_STICKY;
     }

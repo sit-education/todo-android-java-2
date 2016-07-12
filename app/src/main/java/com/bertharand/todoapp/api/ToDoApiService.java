@@ -2,7 +2,10 @@ package com.bertharand.todoapp.api;
 
 import com.bertharand.todoapp.api.model.request.LoginRequest;
 import com.bertharand.todoapp.api.model.request.SignUpRequest;
+import com.bertharand.todoapp.api.model.response.BaseResponse;
 import com.bertharand.todoapp.api.model.response.SignResponse;
+import com.bertharand.todoapp.api.model.response.TaskListResponse;
+import com.bertharand.todoapp.api.model.response.Task;
 
 import retrofit.Call;
 
@@ -31,5 +34,13 @@ public class ToDoApiService extends BaseToDoApiService {
                                      String lastName, String password, String confirmPassword) {
         return getToDoApiInterface().signUp(
                 new SignUpRequest(email, login, firstName, lastName, password, confirmPassword));
+    }
+
+    public Call<TaskListResponse> getTaskList(String token){
+        return getToDoApiInterface().getTaskList(token);
+    }
+
+    public Call<BaseResponse> addTask(String token, String title, String description){
+        return getToDoApiInterface().addTask(token, new Task(title, description));
     }
 }

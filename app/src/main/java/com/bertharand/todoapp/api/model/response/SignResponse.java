@@ -4,13 +4,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class SignResponse {
     @SerializedName("data")
-    private UserData mUserData;
+    private User mUser;
 
-    public UserData getUserData() {
-        return mUserData;
+    public User getUser() {
+        return mUser;
     }
 
-    public final void setUserData(UserData userData) {
-        mUserData = userData;
+    public final void setUser(User user) {
+        mUser = user;
     }
 }

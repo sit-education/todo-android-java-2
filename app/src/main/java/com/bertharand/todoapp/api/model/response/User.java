@@ -2,7 +2,7 @@ package com.bertharand.todoapp.api.model.response;
 
 import com.google.gson.annotations.SerializedName;
 
-public class UserData {
+public class User {
     @SerializedName("user_id")
     private long mUserId;
     @SerializedName("emailVerified")

@@ -20,4 +20,11 @@
     <string name="error_passwords_equal">Passwords are not equal</string>
     <string name="sign_up_title">Sign Up</string>
     <string name="email_confirmation_message">Please, check your email to continue registration</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="activity_tasks_title">Tasks</string>
+    <string name="hint_title_task">Title</string>
+    <string name="hint_description_task">Description</string>
+    <string name="positive_button_create">Create</string>
+    <string name="new_task_message">New task added</string>
+    <string name="loading_dialog_message">Loading</string>
 </resources>

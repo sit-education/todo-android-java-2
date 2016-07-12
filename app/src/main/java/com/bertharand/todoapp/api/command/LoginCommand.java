@@ -1,6 +1,5 @@
 package com.bertharand.todoapp.api.command;
 
-import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -8,8 +7,8 @@ import com.bertharand.todoapp.api.ToDoApiService;
 import com.bertharand.todoapp.api.model.response.ApiError;
 import com.bertharand.todoapp.api.model.response.SignResponse;
 import com.bertharand.todoapp.event.ApiErrorEvent;
-import com.bertharand.todoapp.event.SignSuccessEvent;
 import com.bertharand.todoapp.event.NetworkErrorEvent;
+import com.bertharand.todoapp.event.SignSuccessEvent;
 import com.bertharand.todoapp.utils.ErrorUtils;
 
 import retrofit.Call;
@@ -42,7 +41,7 @@ public class LoginCommand extends BaseCommand implements Callback<SignResponse> 
     }
 
     @Override
-    protected final void doExecute(Context context) {
+    protected final void doExecute() {
         Call<SignResponse> loginCall = ToDoApiService.getInstance().login(mLogin, mPassword);
 
         loginCall.enqueue(this);
@@ -51,7 +50,7 @@ public class LoginCommand extends BaseCommand implements Callback<SignResponse> 
     @Override
     public final void onResponse(Response<SignResponse> response, Retrofit retrofit) {
         if(response.isSuccess() && response.body()!= null) {
-            notifySubscribers(new SignSuccessEvent(response.body().getUserData()));
+            notifySubscribers(new SignSuccessEvent(response.body().getUser()));
         } else {
             ApiError error = ErrorUtils.parseError(response, retrofit);
             notifySubscribers(new ApiErrorEvent(error.getErrorMessage()));
