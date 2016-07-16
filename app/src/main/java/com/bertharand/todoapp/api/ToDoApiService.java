@@ -1,6 +1,7 @@
 package com.bertharand.todoapp.api;
 
 import com.bertharand.todoapp.api.model.request.LoginRequest;
+import com.bertharand.todoapp.api.model.request.RestorePasswordData;
 import com.bertharand.todoapp.api.model.request.SignUpRequest;
 import com.bertharand.todoapp.api.model.response.BaseResponse;
 import com.bertharand.todoapp.api.model.response.SignResponse;
@@ -9,11 +10,10 @@ import com.bertharand.todoapp.api.model.response.Task;
 
 import retrofit.Call;
 
-public class ToDoApiService extends BaseToDoApiService {
+public final class ToDoApiService extends BaseToDoApiService {
     private static volatile ToDoApiService mInstance;
 
-    private ToDoApiService() {
-    }
+    private ToDoApiService() {}
 
     public static ToDoApiService getInstance() {
         if (mInstance == null) {
@@ -42,5 +42,17 @@ public class ToDoApiService extends BaseToDoApiService {
 
     public Call<BaseResponse> addTask(String token, String title, String description){
         return getToDoApiInterface().addTask(token, new Task(title, description));
+    }
+
+    public Call<BaseResponse> changeTask(String token, long id, String title, String description){
+        return getToDoApiInterface().changeTask(token, id, new Task(title, description));
+    }
+
+    public Call<BaseResponse> deleteTask(String token, long id){
+        return getToDoApiInterface().deleteTask(token, id);
+    }
+
+    public Call<BaseResponse> restorePassword(String email){
+        return getToDoApiInterface().restorePassword(new RestorePasswordData(email));
     }
 }

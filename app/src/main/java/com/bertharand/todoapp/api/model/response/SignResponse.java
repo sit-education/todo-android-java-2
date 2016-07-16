@@ -6,7 +6,7 @@ public class SignResponse {
     @SerializedName("data")
     private User mUser;
 
-    public User getUser() {
+    public final User getUser() {
         return mUser;
     }
 

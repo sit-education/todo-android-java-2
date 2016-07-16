@@ -12,4 +12,12 @@ public class LoginRequest {
         mLogin = login;
         mPassword = password;
     }
+
+    public final String getLogin() {
+        return mLogin;
+    }
+
+    public final String getPassword() {
+        return mPassword;
+    }
 }

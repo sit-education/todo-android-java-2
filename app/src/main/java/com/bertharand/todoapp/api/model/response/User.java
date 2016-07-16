@@ -12,7 +12,7 @@ public class User {
     @SerializedName("tokenExpired")
     private long mTokenExpired;
 
-    public long getUserId() {
+    public final long getUserId() {
         return mUserId;
     }
 
@@ -20,7 +20,7 @@ public class User {
         mUserId = userId;
     }
 
-    public byte getIsEmailVerified() {
+    public final byte getIsEmailVerified() {
         return mIsEmailVerified;
     }
 
@@ -28,7 +28,7 @@ public class User {
         mIsEmailVerified = isEmailVerified;
     }
 
-    public String getTokenKey() {
+    public final String getTokenKey() {
         return mTokenKey;
     }
 
@@ -36,7 +36,7 @@ public class User {
         mTokenKey = tokenKey;
     }
 
-    public long getTokenExpired() {
+    public final long getTokenExpired() {
         return mTokenExpired;
     }
 

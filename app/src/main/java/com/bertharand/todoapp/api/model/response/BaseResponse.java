@@ -6,7 +6,7 @@ public class BaseResponse {
     @SerializedName("status")
     private byte mStatus;
 
-    public byte getStatus() {
+    public final byte getStatus() {
         return mStatus;
     }
 

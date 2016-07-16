@@ -6,6 +6,7 @@ import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 
 public abstract class BaseToDoApiService {
+    public static final String TOKEN_HEADER = "Token-Key";
     private static final String BASE_URL = "https://sit-todo-test.appspot.com/api/v1/";
 
     final ToDoApiInterface getToDoApiInterface() {

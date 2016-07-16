@@ -10,11 +10,7 @@ public class RestorePasswordData {
         mEmail = email;
     }
 
-    public String getEmail() {
+    public final String getEmail() {
         return mEmail;
-    }
-
-    public final void setEmail(String email) {
-        mEmail = email;
     }
 }

@@ -17,7 +17,7 @@ import retrofit.http.POST;
 import retrofit.http.PUT;
 import retrofit.http.Path;
 
-public interface ToDoApiInterface {
+interface ToDoApiInterface {
     @POST("login")
     Call<SignResponse> login(@Body LoginRequest loginRequest);
 
@@ -25,20 +25,21 @@ public interface ToDoApiInterface {
     Call<SignResponse> signUp(@Body SignUpRequest signUpRequest);
 
     @GET("items")
-    Call<TaskListResponse> getTaskList(@Header("Token-Key") String token);
+    Call<TaskListResponse> getTaskList(@Header(BaseToDoApiService.TOKEN_HEADER) String token);
 
     @POST("item")
-    Call<BaseResponse> addTask(@Header("Token-Key") String token,
+    Call<BaseResponse> addTask(@Header(BaseToDoApiService.TOKEN_HEADER) String token,
                                @Body Task data);
 
     @POST("restorePassword")
     Call<BaseResponse> restorePassword(@Body RestorePasswordData data);
 
     @DELETE("item/{itemId}")
-    Call<BaseResponse> deleteTask(@Header("Token-Key") String token,
+    Call<BaseResponse> deleteTask(@Header(BaseToDoApiService.TOKEN_HEADER) String token,
                                   @Path("itemId") long itemId);
 
     @PUT("item/{itemId}")
-    Call<BaseResponse> changeTask(@Header("Token-Key") String token,
+    Call<BaseResponse> changeTask(@Header(BaseToDoApiService.TOKEN_HEADER) String token,
+                                  @Path("itemId") long itemId,
                                   @Body Task data);
 }
