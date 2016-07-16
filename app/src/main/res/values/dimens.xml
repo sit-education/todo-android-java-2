@@ -7,6 +7,7 @@
     <dimen name="card_elevation">8dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_size_medium">16sp</dimen>
-    <dimen name="dot_size">12dp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
     <dimen name="separator_size">0.5dp</dimen>
+    <dimen name="circle_size">12dp</dimen>
 </resources>

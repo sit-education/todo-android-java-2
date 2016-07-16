@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -20,9 +20,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.LoginActivity"/>
+        <activity android:name=".ui.activity.LoginActivity"/>
 
-        <activity android:name=".ui.SignUpActivity"/>
+        <activity android:name=".ui.activity.SignUpActivity"/>
 
         <service
             android:name=".api.CommandExecutorService"
