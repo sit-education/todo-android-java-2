@@ -12,7 +12,7 @@ public class SignSuccessEvent {
         mUser = user;
     }
 
-    public User getUser() {
+    public final User getUser() {
         return mUser;
     }
 

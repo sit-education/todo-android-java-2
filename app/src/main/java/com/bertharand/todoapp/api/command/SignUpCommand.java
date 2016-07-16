@@ -54,10 +54,10 @@ public class SignUpCommand extends BaseCommand implements Callback<SignResponse>
 
     @Override
     protected final void doExecute() {
-        Call<SignResponse> loginCall = ToDoApiService.getInstance()
+        Call<SignResponse> signUpCall = ToDoApiService.getInstance()
                 .signUp(mEmail, mLogin, mFirstName, mLastName, mPassword, mConfirmPassword);
 
-        loginCall.enqueue(this);
+        signUpCall.enqueue(this);
     }
 
     @Override

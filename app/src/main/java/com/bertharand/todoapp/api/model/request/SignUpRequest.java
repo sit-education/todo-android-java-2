@@ -25,4 +25,28 @@ public class SignUpRequest {
         mPassword = password;
         mConfirmPassword = confirmPassword;
     }
+
+    public final String getEmail() {
+        return mEmail;
+    }
+
+    public final String getLogin() {
+        return mLogin;
+    }
+
+    public final String getFirstName() {
+        return mFirstName;
+    }
+
+    public final String getLastName() {
+        return mLastName;
+    }
+
+    public final String getPassword() {
+        return mPassword;
+    }
+
+    public final String getConfirmPassword() {
+        return mConfirmPassword;
+    }
 }
