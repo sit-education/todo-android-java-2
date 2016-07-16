@@ -11,8 +11,8 @@
         android:padding="@dimen/activity_horizontal_margin">
         <View
             android:id="@+id/circle_view"
-            android:layout_width="@dimen/dot_size"
-            android:layout_height="@dimen/dot_size"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:background="@drawable/circle"
             android:layout_centerInParent="true"
             android:layout_alignParentLeft="true"
@@ -21,7 +21,7 @@
             android:layout_marginEnd="@dimen/activity_horizontal_margin"/>
 
         <TextView
-            android:id="@+id/task_title_textview"
+            android:id="@+id/task_title_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size_medium"
@@ -31,13 +31,13 @@
             android:singleLine="true"/>
 
         <TextView
-            android:id="@+id/task_description_textview"
+            android:id="@+id/task_description_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/textColorSecondary"
             android:layout_toRightOf="@id/circle_view"
             android:layout_toEndOf="@id/circle_view"
-            android:layout_below="@id/task_title_textview"
+            android:layout_below="@id/task_title_text_view"
             android:singleLine="true"/>
 
     </RelativeLayout>

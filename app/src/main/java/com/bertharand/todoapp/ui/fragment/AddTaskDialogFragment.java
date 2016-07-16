@@ -1,4 +1,4 @@
-package com.bertharand.todoapp.ui;
+package com.bertharand.todoapp.ui.fragment;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -15,25 +15,26 @@ import com.bertharand.todoapp.R;
 import com.bertharand.todoapp.api.ToDoApiServiceHelper;
 
 public class AddTaskDialogFragment extends DialogFragment {
+    public static final String TAG = "AddListDialogFragment";
     private EditText mTaskTitleEditText;
     private EditText mTaskDescriptionEditText;
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
+    public final void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
 
     @NonNull
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
+    public final Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View rootView = inflater.inflate(R.layout.dialog_add_task, null);
 
-        mTaskTitleEditText = (EditText) rootView.findViewById(R.id.task_title_edittext);
-        mTaskDescriptionEditText = (EditText) rootView.findViewById(R.id.task_description_edittext);
+        mTaskTitleEditText = (EditText) rootView.findViewById(R.id.task_title_edit_text);
+        mTaskDescriptionEditText = (EditText) rootView.findViewById(R.id.task_description_edit_text);
 
         builder.setView(rootView)
                 .setPositiveButton(R.string.positive_button_create, new DialogInterface.OnClickListener() {

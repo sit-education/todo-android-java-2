@@ -62,12 +62,11 @@ public class DetailFragment extends Fragment implements MainActivity.OnBackPress
     }
 
     private void initializeScreen(){
-        View view = getView();
-        if(view != null) {
-            setupToolbar(view);
+        if(getView() != null) {
+            setupToolbar(getView());
 
-            mTitleEditText = (EditText) view.findViewById(R.id.task_title_edit_text);
-            mDescriptionEditText = (EditText) view.findViewById(R.id.task_description_edit_text);
+            mTitleEditText = (EditText) getView().findViewById(R.id.task_title_edit_text);
+            mDescriptionEditText = (EditText) getView().findViewById(R.id.task_description_edit_text);
 
             mTitleEditText.setText(mTaskTitle);
             mDescriptionEditText.setText(mTaskDescription);

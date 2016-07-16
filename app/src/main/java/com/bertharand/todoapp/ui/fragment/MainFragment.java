@@ -35,7 +35,6 @@ import java.util.List;
 
 public class MainFragment extends BaseFragment implements
         TasksAdapter.Listener, View.OnClickListener, SwipeRefreshLayout.OnRefreshListener{
-
     public static final String TASK_ID_EXTRA = "task_id";
     public static final String TASK_TITLE_EXTRA = "task_title";
     public static final String TASK_DESCRIPTION_EXTRA = "task_description";

@@ -3,6 +3,7 @@ package com.bertharand.todoapp.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
 
 public final class AppSettings {
     private static final String DEFAULT_VALUE = "";
@@ -53,6 +54,10 @@ public final class AppSettings {
     }
 
     public static synchronized boolean isAuthorized(Context context) {
-        return !TextUtils.isEmpty(getToken(context));
+        return !TextUtils.isEmpty(getToken(context)) && !isTokenExpired(context);
+    }
+
+    public static synchronized boolean isTokenExpired(Context context){
+        return getTokenExpired(context) < System.currentTimeMillis() / DateUtils.SECOND_IN_MILLIS;
     }
 }
