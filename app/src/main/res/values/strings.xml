@@ -38,4 +38,5 @@
     <string name="invalid_email_error">Invalid email</string>
     <string name="dialog_restore_title">Restoring password</string>
     <string name="dialog_restore_message">Check your email for recover your password</string>
+    <string name="empty_state">There are no todos yet :(</string>
 </resources>

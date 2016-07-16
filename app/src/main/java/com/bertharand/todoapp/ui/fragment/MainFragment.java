@@ -19,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.bertharand.todoapp.R;
 import com.bertharand.todoapp.api.ToDoApiServiceHelper;
@@ -42,6 +43,7 @@ public class MainFragment extends BaseFragment implements
     private TasksAdapter mTasksAdapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private ProgressDialog mProgressDialog;
+    private TextView mEmptyTextView;
 
     @Override
     public final View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -108,6 +110,7 @@ public class MainFragment extends BaseFragment implements
             setupSwipeRefreshLayout(getView());
             setupRecyclerView(view);
 
+            mEmptyTextView = (TextView) view.findViewById(R.id.empty_state_text_view);
             FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
             fab.setOnClickListener(this);
         }
@@ -141,6 +144,7 @@ public class MainFragment extends BaseFragment implements
         hideProgressDialog();
         hideSwipeRefreshLayout();
         mTasksAdapter.swapData(mTaskList);
+        hideShowEmptyState(mTaskList.isEmpty());
     }
 
     public final void onEvent(TaskAddedEvent taskAddedEvent){
@@ -156,6 +160,7 @@ public class MainFragment extends BaseFragment implements
     public final void onEvent(TaskDeletedEvent taskDeletedEvent){
         showSnackBar(getString(R.string.todo_delete_message));
         mTasksAdapter.deleteTaskById(taskDeletedEvent.getTaskId());
+        hideShowEmptyState(mTasksAdapter.getItemCount() == 0);
     }
 
     public final void onEvent(ApiErrorEvent apiErrorEvent){
@@ -190,6 +195,10 @@ public class MainFragment extends BaseFragment implements
         if (mSwipeRefreshLayout != null && mSwipeRefreshLayout.isRefreshing()) {
             mSwipeRefreshLayout.setRefreshing(false);
         }
+    }
+
+    private void hideShowEmptyState(boolean isShow){
+        mEmptyTextView.setVisibility(isShow ? View.VISIBLE : View.GONE);
     }
 
     @Override

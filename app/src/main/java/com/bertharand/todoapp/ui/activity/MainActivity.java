@@ -19,9 +19,11 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnTa
         if (AppSettings.isAuthorized(this)) {
             setContentView(R.layout.activity_main);
 
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.main_content, new MainFragment())
-                    .commit();
+            if (savedInstanceState == null) {
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.main_content, new MainFragment())
+                        .commit();
+            }
         } else {
             startLoginActivity();
         }
