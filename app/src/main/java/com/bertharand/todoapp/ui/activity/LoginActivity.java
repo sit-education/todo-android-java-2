@@ -54,7 +54,7 @@ public class LoginActivity extends BaseActivity {
 
     public final void restorePassword(View view) {
         DialogFragment dialog = new RestorePasswordDialogFragment();
-        dialog.show(getSupportFragmentManager(), "RestorePasswordDialogFragment");
+        dialog.show(getSupportFragmentManager(), RestorePasswordDialogFragment.TAG);
     }
 
     public final void onEvent(SignSuccessEvent signSuccessEvent){

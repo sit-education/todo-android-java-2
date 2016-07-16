@@ -15,6 +15,7 @@ import com.bertharand.todoapp.R;
 import com.bertharand.todoapp.api.ToDoApiServiceHelper;
 
 public class RestorePasswordDialogFragment extends DialogFragment {
+    public static final String TAG = "RestorePasswordDialogFragment";
     private EditText mEmailEditText;
 
     @Override
