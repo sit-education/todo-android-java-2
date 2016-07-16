@@ -12,7 +12,9 @@ import retrofit.Converter;
 import retrofit.Response;
 import retrofit.Retrofit;
 
-public class ErrorUtils {
+public final class ErrorUtils {
+
+    private ErrorUtils(){}
 
     public static ApiError parseError(Response<?> response, Retrofit retrofit) {
         Converter<ResponseBody, BaseApiError> converter =

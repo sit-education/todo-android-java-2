@@ -8,7 +8,7 @@ public class TaskListContainer {
     @SerializedName("todoData")
     private List<Task> mTaskList;
 
-    public List<Task> getTaskList() {
+    public final List<Task> getTaskList() {
         return mTaskList;
     }
 

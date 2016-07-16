@@ -44,7 +44,8 @@ public class AddTaskCommand extends BaseCommand implements Callback<BaseResponse
 
     @Override
     protected final void doExecute() {
-        Call<BaseResponse> addTaskCall = ToDoApiService.getInstance().addTask(mToken, mTitle, mDescription);
+        Call<BaseResponse> addTaskCall =
+                ToDoApiService.getInstance().addTask(mToken, mTitle, mDescription);
 
         addTaskCall.enqueue(this);
     }

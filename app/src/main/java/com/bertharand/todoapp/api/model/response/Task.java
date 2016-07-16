@@ -15,7 +15,7 @@ public class Task {
         mDescription = description;
     }
 
-    public long getId() {
+    public final long getId() {
         return mId;
     }
 
@@ -23,7 +23,7 @@ public class Task {
         mId = id;
     }
 
-    public String getTitle() {
+    public final String getTitle() {
         return mTitle;
     }
 
@@ -31,7 +31,7 @@ public class Task {
         mTitle = title;
     }
 
-    public String getDescription() {
+    public final String getDescription() {
         return mDescription;
     }
 

@@ -7,7 +7,7 @@ public class ApiErrorEvent {
         mErrorMessage = errorMessage;
     }
 
-    public String getErrorMessage() {
+    public final String getErrorMessage() {
         return mErrorMessage;
     }
 

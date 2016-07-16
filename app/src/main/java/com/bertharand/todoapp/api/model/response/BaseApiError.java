@@ -8,7 +8,7 @@ public class BaseApiError {
     @SerializedName("errors")
     private List<ApiError> mErrorList;
 
-    public List<ApiError> getErrorList() {
+    public final List<ApiError> getErrorList() {
         return mErrorList;
     }
 

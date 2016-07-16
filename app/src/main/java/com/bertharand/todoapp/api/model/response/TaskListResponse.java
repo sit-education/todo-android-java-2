@@ -6,7 +6,7 @@ public class TaskListResponse {
     @SerializedName("data")
     private TaskListContainer mTaskListContainer;
 
-    public TaskListContainer getTaskListContainer() {
+    public final TaskListContainer getTaskListContainer() {
         return mTaskListContainer;
     }
 

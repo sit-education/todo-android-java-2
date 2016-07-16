@@ -8,7 +8,7 @@ public class ApiError {
     @SerializedName("error_message")
     private String mErrorMessage;
 
-    public String getErrorKey() {
+    public final String getErrorKey() {
         return mErrorKey;
     }
 
@@ -16,7 +16,7 @@ public class ApiError {
         mErrorKey = errorKey;
     }
 
-    public String getErrorMessage() {
+    public final String getErrorMessage() {
         return mErrorMessage;
     }
 
