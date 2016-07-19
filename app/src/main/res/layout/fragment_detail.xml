@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/background_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <ScrollView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/task_title_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:padding="16dp"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                android:hint="@string/hint_title_todo"/>
+
+            <EditText
+                android:id="@+id/task_description_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:padding="16dp"
+                android:textSize="@dimen/text_size_medium"
+                android:hint="@string/hint_description_todo"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

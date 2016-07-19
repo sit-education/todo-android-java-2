@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/login_screen_padding">
+
+        <TextView
+            android:id="@+id/logo_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/app_title"
+            android:textSize="@dimen/app_title_size"
+            android:textColor="@color/separatorColor"
+            android:fontFamily="sans-serif-thin"/>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/credentials_card_view"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:elevation="@dimen/card_elevation"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:background="@android:color/white"
+            tools:targetApi="lollipop">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_vertical_margin">
+
+                <EditText
+                    android:id="@+id/email_edit_text"
+                    style="@style/LoginEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email_edit_text_hint"
+                    android:inputType="textEmailAddress"/>
+
+                <EditText
+                    android:id="@+id/login_edit_text"
+                    style="@style/LoginEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/login_edit_text_hint"/>
+
+                <EditText
+                    android:id="@+id/first_name_edit_text"
+                    style="@style/LoginEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/first_name_edit_text_hint"/>
+
+                <EditText
+                    android:id="@+id/last_name_edit_text"
+                    style="@style/LoginEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/last_name_edit_text_hint"/>
+
+                <EditText
+                    android:id="@+id/password_edit_text"
+                    style="@style/LoginEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password_edit_text_hint"
+                    android:inputType="textPassword"/>
+
+                <EditText
+                    android:id="@+id/confirm_password_edit_text"
+                    style="@style/LoginEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/confirm_password_edit_text_hint"
+                    android:inputType="textPassword"/>
+
+                <Button
+                    android:id="@+id/sign_up_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/sign_up_button_title"
+                    android:textColor="@android:color/white"
+                    android:onClick="attemptToSignUp"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
